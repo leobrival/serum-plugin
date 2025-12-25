@@ -29,6 +29,17 @@
 			},
 			"source": "./plugins/hookify",
 			"category": "security"
+		},
+		{
+			"name": "media-tools",
+			"description": "Image and video manipulation tools using ImageMagick and FFmpeg",
+			"version": "1.0.0",
+			"author": {
+				"name": "Leo Brival",
+				"email": "leo.brival@gmail.com"
+			},
+			"source": "./plugins/media-tools",
+			"category": "productivity"
 		}
 	]
 }

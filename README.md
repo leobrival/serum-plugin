@@ -1,6 +1,6 @@
 # Serum Plugins Official
 
-Official Serum plugins for Claude Code - modular tools for crawling and security.
+Official Serum plugins for Claude Code - modular tools for crawling, security, and media processing.
 
 ## Installation
 
@@ -18,6 +18,9 @@ Official Serum plugins for Claude Code - modular tools for crawling and security
 
 # Install hookify (24 security rules, Bun runtime)
 /plugin install hookify@serum-plugins-official
+
+# Install media-tools (image/video processing)
+/plugin install media-tools@serum-plugins-official
 ```
 
 ### Verify installation
@@ -63,6 +66,32 @@ Enhanced hookify with **24 pre-configured security rules** - uses Bun runtime, n
 /hookify Block npm publish commands
 ```
 
+### media-tools
+
+Image and video manipulation tools using **ImageMagick** and **FFmpeg**.
+
+**Features:**
+
+- Resize and crop images with aspect ratio control
+- Compress images to modern formats (WebP, AVIF)
+- Batch process multiple images
+- Compress and convert videos
+- Create optimized GIFs from videos
+
+**Commands:**
+
+- `/image-resize` - Resize, crop, and convert images
+- `/image-compress` - Compress images without resizing
+- `/image-batch` - Batch process multiple images
+- `/video-compress` - Compress and convert videos
+- `/video-to-gif` - Convert video clips to GIFs
+
+**Quick example:**
+
+```bash
+/image-resize photo.jpg --Resolution 1920 --Ratio 16:9 --Format webp --Quality 85
+```
+
 ## File Structure
 
 ```
@@ -81,18 +110,20 @@ serum-plugins-official/
 │   │   ├── .claude-plugin/
 │   │   │   └── plugin.json
 │   │   ├── core/              # TypeScript rule engine
-│   │   │   ├── types.ts
-│   │   │   ├── config-loader.ts
-│   │   │   └── rule-engine.ts
 │   │   ├── hooks/             # Bun hooks
-│   │   │   ├── hooks.json
-│   │   │   ├── pretooluse.ts
-│   │   │   ├── posttooluse.ts
-│   │   │   ├── stop.ts
-│   │   │   └── userpromptsubmit.ts
 │   │   ├── commands/
 │   │   ├── rules/             # 24 pre-configured security rules
 │   │   └── README.md
+│   └── media-tools/
+│       ├── .claude-plugin/
+│       │   └── plugin.json
+│       ├── commands/
+│       │   ├── image-resize.md
+│       │   ├── image-compress.md
+│       │   ├── image-batch.md
+│       │   ├── video-compress.md
+│       │   └── video-to-gif.md
+│       └── README.md
 └── README.md
 ```
 

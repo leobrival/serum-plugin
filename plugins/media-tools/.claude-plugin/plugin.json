@@ -1,0 +1,9 @@
+{
+  "name": "media-tools",
+  "version": "1.0.0",
+  "description": "Image and video manipulation tools using ImageMagick and FFmpeg",
+  "commands": ["commands/*.md"],
+  "author": "leobrival",
+  "license": "MIT",
+  "keywords": ["image", "video", "resize", "compress", "convert", "imagemagick", "ffmpeg"]
+}
