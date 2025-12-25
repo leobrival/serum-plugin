@@ -7,7 +7,7 @@ Official Serum plugins for Claude Code - modular tools for crawling, security, a
 ### Add the marketplace
 
 ```bash
-/plugin marketplace add leobrival/serum-plugin
+/plugin marketplace add leobrival/serum-plugins-official
 ```
 
 ### Install plugins
@@ -58,7 +58,7 @@ Security validation hooks with command validation, linting and type checking.
 ## File Structure
 
 ```
-serum-plugin/
+serum-plugins-official/
 ├── .claude-plugin/
 │   └── marketplace.json
 ├── plugins/
