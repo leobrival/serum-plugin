@@ -77,22 +77,22 @@ serum-plugins-official/
 │   │   │   └── crawler.md
 │   │   ├── scripts/
 │   │   └── README.md
-│   └── hookify/
-│       ├── .claude-plugin/
-│       │   └── plugin.json
-│       ├── core/              # TypeScript rule engine
-│       │   ├── types.ts
-│       │   ├── config-loader.ts
-│       │   └── rule-engine.ts
-│       ├── hooks/             # Bun hooks
-│       │   ├── hooks.json
-│       │   ├── pretooluse.ts
-│       │   ├── posttooluse.ts
-│       │   ├── stop.ts
-│       │   └── userpromptsubmit.ts
-│       ├── commands/
-│       ├── rules/             # 24 pre-configured security rules
-│       └── README.md
+│   ├── hookify/
+│   │   ├── .claude-plugin/
+│   │   │   └── plugin.json
+│   │   ├── core/              # TypeScript rule engine
+│   │   │   ├── types.ts
+│   │   │   ├── config-loader.ts
+│   │   │   └── rule-engine.ts
+│   │   ├── hooks/             # Bun hooks
+│   │   │   ├── hooks.json
+│   │   │   ├── pretooluse.ts
+│   │   │   ├── posttooluse.ts
+│   │   │   ├── stop.ts
+│   │   │   └── userpromptsubmit.ts
+│   │   ├── commands/
+│   │   ├── rules/             # 24 pre-configured security rules
+│   │   └── README.md
 └── README.md
 ```
 

@@ -6,8 +6,8 @@ pattern: format\s+
 action: block
 ---
 
-**Formatage bloqué**
+**Formatting blocked**
 
-La commande `format` efface toutes les données du volume cible.
+The `format` command erases all data from the target volume.
 
-Opération irréversible nécessitant une exécution manuelle.
+Irreversible operation requiring manual execution.

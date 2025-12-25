@@ -70,4 +70,4 @@ The crawler generates:
 
 ## Response
 
-Provide clear, concise updates in French. Do not use emojis unless explicitly requested.
+Provide clear, concise updates in English. Do not use emojis unless explicitly requested.
