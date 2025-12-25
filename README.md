@@ -4,9 +4,23 @@ A Claude Code plugin for serum operations.
 
 ## Installation
 
+### From GitHub (recommended)
+
 ```bash
-# Install the plugin
-claude plugin install /Users/leobrival/Developer/plugins/serum-plugin
+claude plugin install https://github.com/leobrival/serum-plugin
+```
+
+### From local path
+
+```bash
+git clone https://github.com/leobrival/serum-plugin.git
+claude plugin install ./serum-plugin
+```
+
+### Verify installation
+
+```bash
+claude plugin list
 ```
 
 ## Components
