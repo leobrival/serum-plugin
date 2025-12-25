@@ -5,5 +5,42 @@
   "commands": ["commands/*.md"],
   "author": "leobrival",
   "license": "MIT",
-  "keywords": ["image", "video", "resize", "compress", "convert", "imagemagick", "ffmpeg"]
+  "keywords": ["image", "video", "resize", "compress", "convert", "imagemagick", "ffmpeg"],
+  "dependencies": {
+    "system": [
+      {
+        "name": "imagemagick",
+        "command": "magick",
+        "version": ">=7.0.0",
+        "install": {
+          "macos": "brew install imagemagick",
+          "linux": "sudo apt install imagemagick",
+          "windows": "winget install ImageMagick.ImageMagick"
+        },
+        "description": "Image processing library for resize, compress, convert operations"
+      },
+      {
+        "name": "ffmpeg",
+        "command": "ffmpeg",
+        "version": ">=5.0.0",
+        "install": {
+          "macos": "brew install ffmpeg",
+          "linux": "sudo apt install ffmpeg",
+          "windows": "winget install FFmpeg.FFmpeg"
+        },
+        "description": "Video processing library for compress, convert, trim operations"
+      },
+      {
+        "name": "gifsicle",
+        "command": "gifsicle",
+        "optional": true,
+        "install": {
+          "macos": "brew install gifsicle",
+          "linux": "sudo apt install gifsicle",
+          "windows": "choco install gifsicle"
+        },
+        "description": "Optional GIF optimizer for smaller file sizes"
+      }
+    ]
+  }
 }
