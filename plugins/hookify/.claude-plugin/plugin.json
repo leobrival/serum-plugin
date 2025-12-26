@@ -6,32 +6,5 @@
 		"name": "Léo Brival",
 		"email": "leobrival@serumandco.com",
 		"url": "https://www.serumandco.com/"
-	},
-	"hooks": [
-		{
-			"event": "Notification",
-			"command": "bun",
-			"args": ["../hooks/notification.ts"]
-		},
-		{
-			"event": "PreToolUse",
-			"command": "bun",
-			"args": ["../hooks/pretooluse.ts"]
-		},
-		{
-			"event": "PostToolUse",
-			"command": "bun",
-			"args": ["../hooks/posttooluse.ts"]
-		},
-		{
-			"event": "Stop",
-			"command": "bun",
-			"args": ["../hooks/stop.ts"]
-		},
-		{
-			"event": "UserPromptSubmit",
-			"command": "bun",
-			"args": ["../hooks/userpromptsubmit.ts"]
-		}
-	]
+	}
 }
