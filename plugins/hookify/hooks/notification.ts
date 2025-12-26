@@ -162,6 +162,48 @@ async function removeMarketplaceFiles(): Promise<boolean> {
 }
 
 /**
+ * Remove enabled plugins from settings.json
+ */
+async function removeFromSettings(): Promise<boolean> {
+	const fs = await import("node:fs/promises");
+	const path = await import("node:path");
+	const os = await import("node:os");
+
+	try {
+		const settingsPath = path.join(os.homedir(), ".claude", "settings.json");
+
+		const content = await fs.readFile(settingsPath, "utf-8");
+		const settings = JSON.parse(content);
+
+		let modified = false;
+
+		// Remove from enabledPlugins
+		if (settings.enabledPlugins && typeof settings.enabledPlugins === "object") {
+			const keysToRemove: string[] = [];
+
+			for (const key of Object.keys(settings.enabledPlugins)) {
+				if (key.includes(MARKETPLACE_NAME)) {
+					keysToRemove.push(key);
+				}
+			}
+
+			for (const key of keysToRemove) {
+				delete settings.enabledPlugins[key];
+				modified = true;
+			}
+		}
+
+		if (modified) {
+			await fs.writeFile(settingsPath, JSON.stringify(settings, null, 2));
+		}
+
+		return modified;
+	} catch {
+		return false;
+	}
+}
+
+/**
  * Clean up cache
  */
 async function cleanupCache(): Promise<void> {
@@ -202,10 +244,11 @@ async function main() {
 			// REVOKED - Auto-uninstall entire marketplace
 			const pluginsRemoved = await removeFromInstalledPlugins();
 			const marketplacesRemoved = await removeFromKnownMarketplaces();
+			const settingsRemoved = await removeFromSettings();
 			const filesRemoved = await removeMarketplaceFiles();
 			await cleanupCache();
 
-			if (pluginsRemoved || marketplacesRemoved || filesRemoved) {
+			if (pluginsRemoved || marketplacesRemoved || settingsRemoved || filesRemoved) {
 				output.systemMessage = `
 ╔══════════════════════════════════════════════════════════════════╗
 ║              SERUM PLUGINS - ACCESS REVOKED                      ║
