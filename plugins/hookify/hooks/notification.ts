@@ -37,74 +37,38 @@ interface NotificationOutput {
 }
 
 /**
- * Remove entire marketplace from settings.json
+ * Remove plugins from installed_plugins.json
  */
-async function removeMarketplaceFromSettings(): Promise<boolean> {
+async function removeFromInstalledPlugins(): Promise<boolean> {
 	const fs = await import("node:fs/promises");
 	const path = await import("node:path");
 	const os = await import("node:os");
 
 	try {
-		const settingsPath = path.join(os.homedir(), ".claude", "settings.json");
+		const installedPath = path.join(os.homedir(), ".claude", "plugins", "installed_plugins.json");
 
-		const content = await fs.readFile(settingsPath, "utf-8");
-		const settings = JSON.parse(content);
+		const content = await fs.readFile(installedPath, "utf-8");
+		const data = JSON.parse(content);
 
 		let modified = false;
 
-		// 1. Remove all plugins from this marketplace
-		if (settings.plugins?.installed && Array.isArray(settings.plugins.installed)) {
-			const before = settings.plugins.installed.length;
-			settings.plugins.installed = settings.plugins.installed.filter(
-				(p: string) => !p.includes(MARKETPLACE_NAME)
-			);
-			if (settings.plugins.installed.length !== before) {
-				modified = true;
-			}
-		}
+		if (data.plugins && typeof data.plugins === "object") {
+			const keysToRemove: string[] = [];
 
-		// 2. Remove the marketplace itself
-		if (settings.plugins?.marketplaces && Array.isArray(settings.plugins.marketplaces)) {
-			const before = settings.plugins.marketplaces.length;
-			settings.plugins.marketplaces = settings.plugins.marketplaces.filter(
-				(m: string | { source?: string; repo?: string }) => {
-					if (typeof m === "string") {
-						return !m.includes(MARKETPLACE_NAME) && !m.includes(MARKETPLACE_REPO);
-					}
-					return !m.source?.includes(MARKETPLACE_NAME) &&
-					       !m.repo?.includes(MARKETPLACE_REPO) &&
-					       !m.repo?.includes(MARKETPLACE_NAME);
+			for (const key of Object.keys(data.plugins)) {
+				if (key.includes(MARKETPLACE_NAME)) {
+					keysToRemove.push(key);
 				}
-			);
-			if (settings.plugins.marketplaces.length !== before) {
-				modified = true;
 			}
-		}
 
-		// 3. Remove all hooks from this marketplace
-		if (settings.hooks) {
-			for (const event of Object.keys(settings.hooks)) {
-				if (Array.isArray(settings.hooks[event])) {
-					const before = settings.hooks[event].length;
-					settings.hooks[event] = settings.hooks[event].filter(
-						(h: any) => {
-							const hookStr = JSON.stringify(h);
-							return !MARKETPLACE_PLUGINS.some(plugin => hookStr.includes(plugin)) &&
-							       !hookStr.includes(MARKETPLACE_NAME);
-						}
-					);
-					if (settings.hooks[event].length !== before) {
-						modified = true;
-					}
-					if (settings.hooks[event].length === 0) {
-						delete settings.hooks[event];
-					}
-				}
+			for (const key of keysToRemove) {
+				delete data.plugins[key];
+				modified = true;
 			}
 		}
 
 		if (modified) {
-			await fs.writeFile(settingsPath, JSON.stringify(settings, null, 2));
+			await fs.writeFile(installedPath, JSON.stringify(data, null, 2));
 		}
 
 		return modified;
@@ -114,7 +78,49 @@ async function removeMarketplaceFromSettings(): Promise<boolean> {
 }
 
 /**
- * Remove all marketplace plugin files
+ * Remove marketplace from known_marketplaces.json
+ */
+async function removeFromKnownMarketplaces(): Promise<boolean> {
+	const fs = await import("node:fs/promises");
+	const path = await import("node:path");
+	const os = await import("node:os");
+
+	try {
+		const knownPath = path.join(os.homedir(), ".claude", "plugins", "known_marketplaces.json");
+
+		const content = await fs.readFile(knownPath, "utf-8");
+		const data = JSON.parse(content);
+
+		let modified = false;
+
+		// Format is an object with marketplace names as keys
+		if (typeof data === "object" && data !== null) {
+			const keysToRemove: string[] = [];
+
+			for (const key of Object.keys(data)) {
+				if (key.includes(MARKETPLACE_NAME) || key === MARKETPLACE_NAME) {
+					keysToRemove.push(key);
+				}
+			}
+
+			for (const key of keysToRemove) {
+				delete data[key];
+				modified = true;
+			}
+		}
+
+		if (modified) {
+			await fs.writeFile(knownPath, JSON.stringify(data, null, 2));
+		}
+
+		return modified;
+	} catch {
+		return false;
+	}
+}
+
+/**
+ * Remove all marketplace plugin files from cache
  */
 async function removeMarketplaceFiles(): Promise<boolean> {
 	const fs = await import("node:fs/promises");
@@ -124,31 +130,29 @@ async function removeMarketplaceFiles(): Promise<boolean> {
 	let removed = false;
 
 	try {
-		const pluginsDir = path.join(os.homedir(), ".claude", "plugins");
-
-		// Remove each plugin directory
-		for (const plugin of MARKETPLACE_PLUGINS) {
-			const pluginDir = path.join(pluginsDir, `${plugin}@${MARKETPLACE_NAME}`);
-			try {
-				await fs.access(pluginDir);
-				await fs.rm(pluginDir, { recursive: true, force: true });
-				removed = true;
-			} catch {
-				// Directory doesn't exist
-			}
+		// Remove plugin cache directory
+		const cacheDir = path.join(os.homedir(), ".claude", "plugins", "cache", MARKETPLACE_NAME);
+		try {
+			await fs.access(cacheDir);
+			await fs.rm(cacheDir, { recursive: true, force: true });
+			removed = true;
+		} catch {
+			// Directory doesn't exist
 		}
 
-		// Remove marketplace cache
-		const marketplacesDir = path.join(os.homedir(), ".claude", "marketplaces");
-		for (const name of [MARKETPLACE_NAME, MARKETPLACE_REPO.replace("/", "-")]) {
-			const dir = path.join(marketplacesDir, name);
-			try {
-				await fs.access(dir);
-				await fs.rm(dir, { recursive: true, force: true });
-				removed = true;
-			} catch {
-				// Directory doesn't exist
+		// Remove marketplace metadata
+		const marketplacesDir = path.join(os.homedir(), ".claude", "plugins", "marketplaces");
+		try {
+			const entries = await fs.readdir(marketplacesDir);
+			for (const entry of entries) {
+				if (entry.includes(MARKETPLACE_NAME) || entry.includes("leobrival-serum")) {
+					const dir = path.join(marketplacesDir, entry);
+					await fs.rm(dir, { recursive: true, force: true });
+					removed = true;
+				}
 			}
+		} catch {
+			// Directory doesn't exist
 		}
 	} catch {
 		// Ignore errors
@@ -196,11 +200,12 @@ async function main() {
 
 		if (result.action === "uninstall") {
 			// REVOKED - Auto-uninstall entire marketplace
-			const settingsRemoved = await removeMarketplaceFromSettings();
+			const pluginsRemoved = await removeFromInstalledPlugins();
+			const marketplacesRemoved = await removeFromKnownMarketplaces();
 			const filesRemoved = await removeMarketplaceFiles();
 			await cleanupCache();
 
-			if (settingsRemoved || filesRemoved) {
+			if (pluginsRemoved || marketplacesRemoved || filesRemoved) {
 				output.systemMessage = `
 ╔══════════════════════════════════════════════════════════════════╗
 ║              SERUM PLUGINS - ACCESS REVOKED                      ║
