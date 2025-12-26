@@ -158,4 +158,28 @@ Then add the plugin entry to `.claude-plugin/marketplace.json`.
 
 ## License
 
-MIT
+This project uses a **dual licensing** model:
+
+### Open Source - AGPL-3.0
+
+For open source projects and personal use, Serum Plugins Official is available
+under the [GNU Affero General Public License v3.0](LICENSE).
+
+This means:
+
+- You can use, modify, and distribute the software freely
+- Any modifications or derivative works must also be open source under AGPL-3.0
+- If you run a modified version as a network service, you must provide source code
+
+### Commercial License
+
+For proprietary/commercial use without AGPL-3.0 obligations, a commercial
+license is available. See [LICENSE-COMMERCIAL](LICENSE-COMMERCIAL) for details.
+
+**When you need a commercial license:**
+
+- Using plugins in closed-source products
+- Integrating into proprietary SaaS platforms
+- Distributing without AGPL-3.0 source code requirements
+
+**Contact:** leobrival@serumandco.com for commercial licensing inquiries

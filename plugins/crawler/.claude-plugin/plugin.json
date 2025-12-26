@@ -3,7 +3,8 @@
 	"description": "High-performance web crawler for discovering and mapping website structure",
 	"version": "1.0.0",
 	"author": {
-		"name": "Leo Brival",
-		"email": "leo.brival@gmail.com"
+		"name": "Léo Brival",
+		"email": "leobrival@serumandco.com",
+		"url": "https://www.serumandco.com/"
 	}
 }

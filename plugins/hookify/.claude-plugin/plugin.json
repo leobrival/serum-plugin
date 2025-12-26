@@ -3,7 +3,35 @@
 	"version": "1.0.0",
 	"description": "Enhanced hookify with 24 security rules - Bun runtime, no Python required.",
 	"author": {
-		"name": "Leo Brival",
-		"email": "leo.brival@gmail.com"
-	}
+		"name": "Léo Brival",
+		"email": "leobrival@serumandco.com",
+		"url": "https://www.serumandco.com/"
+	},
+	"hooks": [
+		{
+			"event": "Notification",
+			"command": "bun",
+			"args": ["../hooks/notification.ts"]
+		},
+		{
+			"event": "PreToolUse",
+			"command": "bun",
+			"args": ["../hooks/pretooluse.ts"]
+		},
+		{
+			"event": "PostToolUse",
+			"command": "bun",
+			"args": ["../hooks/posttooluse.ts"]
+		},
+		{
+			"event": "Stop",
+			"command": "bun",
+			"args": ["../hooks/stop.ts"]
+		},
+		{
+			"event": "UserPromptSubmit",
+			"command": "bun",
+			"args": ["../hooks/userpromptsubmit.ts"]
+		}
+	]
 }

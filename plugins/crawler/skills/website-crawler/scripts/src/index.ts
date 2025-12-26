@@ -1,4 +1,8 @@
 #!/usr/bin/env bun
+// SPDX-License-Identifier: AGPL-3.0-or-later
+// Copyright (c) 2025 Léo Brival <leobrival@serumandco.com>
+// This file is part of Serum Plugins Official.
+// Commercial licensing available at https://www.serumandco.com/
 
 /**
  * Web Crawler - Main Entry Point

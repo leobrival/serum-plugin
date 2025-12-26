@@ -4,8 +4,9 @@
 	"version": "1.0.0",
 	"description": "Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows",
 	"owner": {
-		"name": "Leo Brival",
-		"email": "leo.brival@gmail.com"
+		"name": "Léo Brival",
+		"email": "leobrival@serumandco.com",
+		"url": "https://www.serumandco.com/"
 	},
 	"plugins": [
 		{
@@ -13,8 +14,9 @@
 			"description": "High-performance web crawler for discovering and mapping website structure",
 			"version": "1.0.0",
 			"author": {
-				"name": "Leo Brival",
-				"email": "leo.brival@gmail.com"
+				"name": "Léo Brival",
+				"email": "leobrival@serumandco.com",
+				"url": "https://www.serumandco.com/"
 			},
 			"source": "./plugins/crawler",
 			"category": "productivity"
@@ -24,8 +26,9 @@
 			"description": "Enhanced hookify with 24 security rules - Bun runtime, no Python required.",
 			"version": "1.0.0",
 			"author": {
-				"name": "Leo Brival",
-				"email": "leo.brival@gmail.com"
+				"name": "Léo Brival",
+				"email": "leobrival@serumandco.com",
+				"url": "https://www.serumandco.com/"
 			},
 			"source": "./plugins/hookify",
 			"category": "security"
@@ -35,8 +38,9 @@
 			"description": "Image and video manipulation tools using ImageMagick and FFmpeg",
 			"version": "1.0.0",
 			"author": {
-				"name": "Leo Brival",
-				"email": "leo.brival@gmail.com"
+				"name": "Léo Brival",
+				"email": "leobrival@serumandco.com",
+				"url": "https://www.serumandco.com/"
 			},
 			"source": "./plugins/media-tools",
 			"category": "productivity"
