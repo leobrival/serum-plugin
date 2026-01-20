@@ -10,22 +10,5 @@
 		"email": "leobrival@serumandco.com",
 		"url": "https://www.serumandco.com/"
 	},
-	"license": "MIT",
-	"category": "security",
-	"keywords": [
-		"audit",
-		"accessibility",
-		"a11y",
-		"RGAA",
-		"WCAG",
-		"security",
-		"OWASP",
-		"performance",
-		"lighthouse",
-		"core-web-vitals",
-		"eco-design",
-		"green-it",
-		"compliance",
-		"testing"
-	]
+	"license": "MIT"
 }

@@ -18,8 +18,7 @@
         "email": "leobrival@serumandco.com",
         "url": "https://www.serumandco.com/"
       },
-      "source": "./plugins/crawler",
-      "category": "productivity"
+      "source": "./plugins/crawler"
     },
     {
       "name": "media-tools",
@@ -30,8 +29,7 @@
         "email": "leobrival@serumandco.com",
         "url": "https://www.serumandco.com/"
       },
-      "source": "./plugins/media-tools",
-      "category": "productivity"
+      "source": "./plugins/media-tools"
     },
     {
       "name": "audit-checker",
@@ -42,8 +40,7 @@
         "email": "leobrival@serumandco.com",
         "url": "https://www.serumandco.com/"
       },
-      "source": "./plugins/audit-checker",
-      "category": "security"
+      "source": "./plugins/audit-checker"
     }
   ]
 }
