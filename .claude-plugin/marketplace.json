@@ -1,5 +1,5 @@
 {
-  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "$schema": "../schemas/marketplace.schema.json",
   "name": "serum-plugins-official",
   "version": "1.0.0",
   "description": "Official Serum plugins for Claude Code - modular tools for crawling, security, and development workflows",
