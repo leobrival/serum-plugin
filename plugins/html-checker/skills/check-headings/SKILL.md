@@ -1,6 +1,8 @@
 ---
 name: check-headings
 description: Analyze and validate HTML heading hierarchy (H1-H6) on web pages. Use when users ask to check headings structure, verify H1 presence, analyze SEO heading hierarchy, find heading issues, or audit page structure. Detects missing H1, multiple H1s, skipped levels, empty headings, and hierarchy violations.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check Headings

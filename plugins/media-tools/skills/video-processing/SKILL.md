@@ -1,6 +1,8 @@
 ---
 name: video-processing
 description: Smart video processing for compress, convert, trim, and audio extraction with batch support. Use when users ask to compress videos, convert to MP4/WebM, extract video clips, trim videos, remove audio, extract audio tracks, or batch process video files. Supports modern codecs and social media presets.
+argument-hint: [video file or folder]
+allowed-tools: Bash(bun:*), Bash(ffmpeg:*), Read
 ---
 
 # Video Processing

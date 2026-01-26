@@ -1,6 +1,8 @@
 ---
 name: audit-methodology
 description: Comprehensive audit methodology for web applications covering accessibility (RGAA 4.1), security (OWASP Top 10), performance (Core Web Vitals), and eco-design. Use when users need guidance on audit processes, testing methodologies, compliance standards, or audit best practices. Includes detailed reference documentation for each audit domain.
+argument-hint: [URL or project path]
+allowed-tools: Bash(lighthouse:*), Bash(axe:*), Bash(pa11y:*), Bash(npm audit:*), Read, WebFetch
 ---
 
 # Audit Methodology Skill

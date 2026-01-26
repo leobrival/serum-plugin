@@ -1,6 +1,8 @@
 ---
 name: check-a11y
 description: Perform accessibility audit on web pages. Use when users ask to check accessibility, audit WCAG compliance, verify ARIA usage, check color contrast, audit keyboard navigation, or analyze screen reader compatibility. Detects ARIA issues, focus problems, contrast issues, and semantic HTML violations.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check A11y (Accessibility)

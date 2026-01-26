@@ -1,6 +1,8 @@
 ---
 name: check-links
 description: Analyze and validate links and buttons on web pages. Use when users ask to check links, verify button hrefs, find empty links, detect javascript:void links, find broken navigation, or audit clickable elements. Detects empty href, javascript:void(0), hash-only links, missing href attributes, and non-accessible buttons.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check Links

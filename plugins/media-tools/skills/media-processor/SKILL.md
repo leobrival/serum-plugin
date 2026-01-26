@@ -1,6 +1,8 @@
 ---
 name: media-processor
 description: Universal media processor that auto-detects and processes images or videos with appropriate tools. Use when users ask to process media files, batch convert media, compress mixed folders, auto-detect file types, or handle both images and videos together.
+argument-hint: [file or folder]
+allowed-tools: Bash(bun:*), Bash(ffmpeg:*), Bash(magick:*), Read
 ---
 
 # Media Processor

@@ -1,6 +1,8 @@
 ---
 name: gif-creation
 description: Create optimized GIFs from videos or image sequences using 2-pass palette generation. Use when users ask to create GIF, video to GIF, optimize GIF, animated GIF, GIF from images, or reduce GIF file size. Supports quality presets and custom timing.
+argument-hint: [video file or image folder]
+allowed-tools: Bash(bun:*), Bash(ffmpeg:*), Bash(magick:*), Bash(gifsicle:*), Read
 ---
 
 # GIF Creation

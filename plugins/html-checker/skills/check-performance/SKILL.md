@@ -1,6 +1,8 @@
 ---
 name: check-performance
 description: Analyze performance-related HTML issues on web pages. Use when users ask to check page performance, audit resource loading, verify lazy loading, check preload hints, or analyze render-blocking resources. Detects missing optimizations, large resources, render-blocking issues, and Core Web Vitals problems.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check Performance

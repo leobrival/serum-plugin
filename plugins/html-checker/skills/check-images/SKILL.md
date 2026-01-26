@@ -1,6 +1,8 @@
 ---
 name: check-images
 description: Analyze and validate images on web pages. Use when users ask to check image alt tags, verify image accessibility, find missing alt attributes, audit image SEO, or check image optimization. Detects missing alt, empty alt, decorative images without proper markup, oversized images, and missing dimensions.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check Images

@@ -1,6 +1,8 @@
 ---
 name: image-processing
 description: Smart image processing for resize, compress, and convert operations with batch support. Use when users ask to resize images, compress photos, convert to WebP/AVIF, batch process images, optimize for social media, or create image thumbnails. Supports modern formats and aspect ratios.
+argument-hint: [image file or folder]
+allowed-tools: Bash(bun:*), Bash(magick:*), Bash(convert:*), Read
 ---
 
 # Image Processing

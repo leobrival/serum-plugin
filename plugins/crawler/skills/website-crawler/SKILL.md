@@ -1,6 +1,8 @@
 ---
 name: website-crawler
 description: High-performance web crawler for discovering and mapping website structure. Use when users ask to crawl a website, map site structure, discover pages, find all URLs on a site, analyze link relationships, or generate site reports. Supports sitemap discovery, checkpoint/resume, rate limiting, and HTML report generation.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Website Crawler

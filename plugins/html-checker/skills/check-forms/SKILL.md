@@ -1,6 +1,8 @@
 ---
 name: check-forms
 description: Analyze and validate forms on web pages. Use when users ask to check form accessibility, verify form labels, audit input fields, check form validation, or analyze form UX. Detects missing labels, invalid input types, accessibility issues, and validation problems.
+argument-hint: [URL]
+allowed-tools: Bash(bun:*), Read, WebFetch
 ---
 
 # Check Forms
