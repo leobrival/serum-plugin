@@ -1,13 +1,8 @@
 {
-  "name": "media-tools",
-  "version": "1.0.0",
-  "description": "Image and video manipulation tools using ImageMagick and FFmpeg",
-  "commands": ["./commands/*.md"],
-  "skills": ["./skills/*/SKILL.md"],
-  "author": {
-    "name": "Léo Brival",
-    "email": "leobrival@serumandco.com",
-    "url": "https://www.serumandco.com/"
-  },
-  "license": "MIT"
+	"name": "media-tools",
+	"description": "Image and video manipulation tools using ImageMagick and FFmpeg",
+	"author": {
+		"name": "Leo Brival",
+		"email": "leobrival@serumandco.com"
+	}
 }

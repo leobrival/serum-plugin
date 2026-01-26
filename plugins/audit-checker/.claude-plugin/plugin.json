@@ -1,14 +1,8 @@
 {
 	"name": "audit-checker",
-	"version": "1.0.0",
-	"description": "Multi-domain audit suite for web applications covering accessibility (RGAA 4.1), security (OWASP), performance (Lighthouse/CWV), and eco-design. Provides specialized agents, slash commands, and comprehensive methodologies for thorough web auditing.",
-	"commands": ["./commands/*.md"],
-	"agents": ["./agents/*.md"],
-	"skills": ["./skills/*/SKILL.md"],
+	"description": "Multi-domain audit suite for web applications covering accessibility (RGAA 4.1), security (OWASP), performance (Lighthouse/CWV), and eco-design.",
 	"author": {
 		"name": "Leo Brival",
-		"email": "leobrival@serumandco.com",
-		"url": "https://www.serumandco.com/"
-	},
-	"license": "MIT"
+		"email": "leobrival@serumandco.com"
+	}
 }
